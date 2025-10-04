@@ -1,0 +1,3 @@
+Create a simple app that checks for food options in an area. Do not use any external APIs that require a billable key. Use the cloudflare API development and deployment system, using the "npm i agents" package to create the AI endpoint
+
+Create a simple web app that takes user input, calls the AI food finder API, displays a loading bar (does not have to be accurate), and returns the AI food options response in a clean, easy-to-read format.
