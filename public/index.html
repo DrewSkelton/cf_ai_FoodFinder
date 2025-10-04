@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Finder - AI-Powered Restaurant Recommendations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <h1>Food Finder</h1>
+                </div>
+                <p class="subtitle">AI-Powered Restaurant Recommendations</p>
+            </div>
+        </header>
+
+        <!-- Search Form -->
+        <main class="main-content">
+            <div class="search-section">
+                <form id="foodSearchForm" class="search-form">
+                    <div class="form-group">
+                        <label for="location" class="form-label">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Location
+                        </label>
+                        <input 
+                            type="text" 
+                            id="location" 
+                            name="location" 
+                            class="form-input" 
+                            placeholder="Enter city, neighborhood, or address..."
+                            required
+                        >
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cuisine" class="form-label">
+                                <i class="fas fa-globe"></i>
+                                Cuisine Type
+                            </label>
+                            <select id="cuisine" name="cuisine" class="form-select">
+                                <option value="">Any Cuisine</option>
+                                <option value="American">American</option>
+                                <option value="Italian">Italian</option>
+                                <option value="Chinese">Chinese</option>
+                                <option value="Japanese">Japanese</option>
+                                <option value="Mexican">Mexican</option>
+                                <option value="Indian">Indian</option>
+                                <option value="Thai">Thai</option>
+                                <option value="French">French</option>
+                                <option value="Mediterranean">Mediterranean</option>
+                                <option value="Korean">Korean</option>
+                                <option value="Vietnamese">Vietnamese</option>
+                                <option value="Greek">Greek</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="Brazilian">Brazilian</option>
+                                <option value="Ethiopian">Ethiopian</option>
+                                <option value="Lebanese">Lebanese</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="priceRange" class="form-label">
+                                <i class="fas fa-dollar-sign"></i>
+                                Price Range
+                            </label>
+                            <select id="priceRange" name="priceRange" class="form-select">
+                                <option value="">Any Price</option>
+                                <option value="budget">Budget ($)</option>
+                                <option value="moderate">Moderate ($$)</option>
+                                <option value="upscale">Upscale ($$$)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dietaryRestrictions" class="form-label">
+                            <i class="fas fa-leaf"></i>
+                            Dietary Preferences
+                        </label>
+                        <input 
+                            type="text" 
+                            id="dietaryRestrictions" 
+                            name="dietaryRestrictions" 
+                            class="form-input" 
+                            placeholder="e.g., vegetarian, vegan, gluten-free, halal..."
+                        >
+                    </div>
+
+                    <button type="submit" class="search-button" id="searchButton">
+                        <i class="fas fa-search"></i>
+                        Find Food Options
+                    </button>
+                </form>
+            </div>
+
+            <!-- Loading Section -->
+            <div id="loadingSection" class="loading-section hidden">
+                <div class="loading-content">
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                    </div>
+                    <h3>Finding the perfect food options...</h3>
+                    <div class="loading-bar">
+                        <div class="loading-progress" id="loadingProgress"></div>
+                    </div>
+                    <p class="loading-text">Our AI is searching for the best restaurants in your area</p>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="results-section hidden">
+                <div class="results-header">
+                    <h2 id="resultsTitle">Food Options Found</h2>
+                    <p id="resultsSummary" class="results-summary"></p>
+                </div>
+                
+                <div id="resultsList" class="results-list">
+                    <!-- Results will be populated here -->
+                </div>
+                
+                <button id="newSearchButton" class="new-search-button">
+                    <i class="fas fa-search"></i>
+                    Search Again
+                </button>
+
+                <span> (AI may hallucinate some data, especially address values!)</span>
+            </div>
+
+            <!-- Error Section -->
+            <div id="errorSection" class="error-section hidden">
+                <div class="error-content">
+                    <i class="fas fa-exclamation-triangle error-icon"></i>
+                    <h3>Oops! Something went wrong</h3>
+                    <p id="errorMessage">We couldn't find food options at the moment. Please try again.</p>
+                    <button id="retryButton" class="retry-button">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Food Finder. Powered by AI and Cloudflare Workers.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
